@@ -133,7 +133,7 @@ void TsdGrid::init(const double cellSize, const EnumTsdGridLayout layoutPartitio
 
   _sizeOfGrid = _cellsY * _cellsX;
 
-  _maxTruncation = 2.0*cellSize;
+  _maxTruncation = 2.0*cellSize;  // TODO: Magic numbers, What is the meaning of 2?
 
   LOGMSG(DBG_DEBUG, "Grid dimensions: " << _cellsX << "x" << _cellsY << " cells"
       << " = " << ((double)_cellsX)*cellSize << "x" << ((double)_cellsY)*cellSize << " sqm");

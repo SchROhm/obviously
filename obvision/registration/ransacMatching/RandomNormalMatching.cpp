@@ -19,7 +19,7 @@ namespace obvious
 RandomNormalMatching::RandomNormalMatching(unsigned int trials, double epsThresh, unsigned int sizeControlSet) : RandomMatching(sizeControlSet)
 {
   _scaleDistance    = 1.0/(epsThresh * epsThresh);
-  _scaleOrientation = 0.33;
+  _scaleOrientation = 0.33;  //TODO: Magicnumber ?
   _trials           = trials;
   _model            = NULL;
   _index            = NULL;
@@ -65,13 +65,13 @@ void RandomNormalMatching::initKDTree(obvious::Matrix* M, vector<unsigned int> i
 }
 
 obvious::Matrix RandomNormalMatching::match(obvious::Matrix* M,
-    const bool* maskM,
-    obvious::Matrix* NM,
-    obvious::Matrix* S,
-    const bool* maskS,
-    double phiMax,
-    const double transMax,
-    const double resolution)
+                                            const bool* maskM,
+                                            obvious::Matrix* NM,
+                                            obvious::Matrix* S,
+                                            const bool* maskS,
+                                            double phiMax,
+                                            const double transMax,
+                                            const double resolution)
 {
   obvious::Matrix TBest(3, 3);
   TBest.setIdentity();

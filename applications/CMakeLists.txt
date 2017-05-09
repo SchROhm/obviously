@@ -61,9 +61,11 @@ IF("${RET_OPENNI_CODE}" STREQUAL "0")
     ADD_EXECUTABLE(xtionStream                xtionStream.cpp)
 	SET_TARGET_PROPERTIES(xtionStream PROPERTIES COMPILE_FLAGS "-Wno-unknown-pragmas -Wno-reorder")	
 	ADD_EXECUTABLE(tsd_xtion                  tsd_xtion.cpp)
+	ADD_EXECUTABLE(tsd_xtion_RS_cal           tsd_xtion_RS_cal.cpp)
 	SET_TARGET_PROPERTIES(tsd_xtion PROPERTIES COMPILE_FLAGS "-Wno-unknown-pragmas -Wno-reorder")	
     TARGET_LINK_LIBRARIES(xtionStream              ${VISIONLIBS}  ${GRAPHICLIBS} ${DEVICELIBS} ${CORELIBS} ${XML_LIBRARIES} ${OPENNI_LIBRARIES})
     TARGET_LINK_LIBRARIES(tsd_xtion                ${VISIONLIBS}  ${DEVICELIBS}  ${GRAPHICLIBS} ${CORELIBS} ${XML_LIBRARIES} ${OPENNI_LIBRARIES})
+        TARGET_LINK_LIBRARIES(tsd_xtion_RS_cal     ${VISIONLIBS}  ${DEVICELIBS}  ${GRAPHICLIBS} ${CORELIBS} ${XML_LIBRARIES} ${OPENNI_LIBRARIES})
 ENDIF()
 
 LINK_DIRECTORIES(/opt/ros/electric/stacks/perception_pcl/flann/lib64/

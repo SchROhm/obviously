@@ -1,9 +1,9 @@
-#include "TSD_PDFMatching.h"
+#include "RS_RNM_Matching.h"
 
 namespace obvious
 {
 
-TSD_PDFMatching::TSD_PDFMatching( TsdGrid& grid,
+RS_RNM_Matching::RS_RNM_Matching( TsdGrid& grid,
                                   unsigned int trials,
                                   double epsThresh,
                                   unsigned int sizeControlSet,
@@ -23,12 +23,12 @@ TSD_PDFMatching::TSD_PDFMatching( TsdGrid& grid,
 
 }
 
-TSD_PDFMatching::~TSD_PDFMatching()
+RS_RNM_Matching::~RS_RNM_Matching()
 {
 
 }
 
-obvious::Matrix TSD_PDFMatching::match( obvious::Matrix TSensor,
+obvious::Matrix RS_RNM_Matching::match( obvious::Matrix TSensor,
                                         obvious::Matrix* M,
                                         const bool* maskM,
                                         obvious::Matrix* NM,

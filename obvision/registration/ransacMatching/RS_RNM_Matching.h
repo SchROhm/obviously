@@ -1,12 +1,11 @@
-#ifndef _TSD_PDFMatching_H_
-#define _TSD_PDFMatching_H_
+#pragma once
 
-#include <math.h>
+#include <cmath>
+#include <omp.h>
 #include "obcore/base/Logger.h"
 #include "obcore/base/types.h"
 #include "obcore/math/mathbase.h"
-#include <omp.h>
-#include <cmath>
+
 
 #include "obvision/registration/ransacMatching/RandomMatching.h"
 #include "obvision/reconstruct/grid/TsdGrid.h"
@@ -17,8 +16,8 @@ namespace obvious
 /**
  * @class RS_RNM_Matching
  * @brief Matching algorithm with rating based on probability density function (PDF)
- * @author Daniel Ammon, Tobias Fink, Stefan May
- * @date 23.12.2015
+ * @author Daniel Ammon, Tobias Fink, Stefan May changed by Rolf Schmidt
+ * @date 01.04.2017
  **/
 class RS_RNM_Matching : public RandomMatching
 {
@@ -79,4 +78,3 @@ private:
 
 } /* namespace obvious */
 
-#endif /* _TSD_PDFMatching_H_ */

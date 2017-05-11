@@ -28,15 +28,15 @@ RS_RNM_Matching::~RS_RNM_Matching()
 
 }
 
-obvious::Matrix RS_RNM_Matching::match( obvious::Matrix TSensor,
-                                        obvious::Matrix* M,
-                                        const bool* maskM,
-                                        obvious::Matrix* NM,
-                                        obvious::Matrix* S,
-                                        const bool* maskS,
-                                        double phiMax,
-                                        const double transMax,
-                                        const double resolution)
+obvious::Matrix RS_RNM_Matching::match( obvious::Matrix TSensor,    //Transformation from sensor to ... ? Roboter
+                                        obvious::Matrix* M,         //Point Cloud of model
+                                        const bool* maskM,          // Mask for model
+                                        obvious::Matrix* NM,        // Normals of  model
+                                        obvious::Matrix* S,         // Point Cloud of Scene
+                                        const bool* maskS,          // Mask for Scene
+                                        double phiMax,              // Maximum Angle of ICP
+                                        const double transMax,      // Maximum Translation of ICP
+                                        const double resolution)    //
 {
   obvious::Matrix TBest(3, 3);
   TBest.setIdentity();
@@ -50,7 +50,7 @@ obvious::Matrix RS_RNM_Matching::match( obvious::Matrix TSensor,
     return TBest;
   }
 
-  if(pointsInM < 3)
+  if(pointsInM < 3) //TODO: RS: Magic number Why do we need 3 Points?
   {
     LOGMSG(DBG_ERROR, "Model and scene contain too less points, size of M: " << pointsInM << ", size of S: " << pointsInS);
     return TBest;
